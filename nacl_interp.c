@@ -234,8 +234,9 @@ asm(".pushsection \".text\",\"ax\",@progbits\n"
     ".type _start,@function\n"
     "_start:\n"
     "xorl %ebp, %ebp\n"
-    "pushl %esp\n"              /* Argument: stack block.  */
+    "movl %esp, %eax\n"         /* Fetch the incoming stack pointer.  */
     "andl $-16, %esp\n"         /* Align the stack as per ABI.  */
+    "pushl %eax\n"              /* Argument: stack block.  */
     "call do_start\n"
     "hlt\n"			/* Never reached.  */
     ".popsection"
