@@ -14,7 +14,6 @@ case "$1" in
 i?86)
   arch=x86_32
   libdir=lib32
-  sel
   ;;
 x86_64)
   arch=x86_64
