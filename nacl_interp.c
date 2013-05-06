@@ -213,7 +213,7 @@ static void do_start(uintptr_t *stack) {
     new_argv[1] = platform;
     new_argv[2] = execfn;
     for (i = 1; i <= argc; ++i)
-      new_argv[3 + i] = argv[i];
+      new_argv[2 + i] = argv[i];
 
     sys_execve(loader, (const char *const *) new_argv, envp);
 
